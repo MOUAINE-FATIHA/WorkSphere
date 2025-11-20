@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Copie de WorkSphere" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="" />
+    <title>Copie de WorkSphere - Virtual Workspace </title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <main>
+        <aside class="members">
+            <h1>WorkSphere</h1>
+            <div class="carte content"></div>
+            <div class="btn">
+                <button type="submit" class="ajout">Ajouter</button>
+            </div>
+        </aside>
+
+        <section class="zones">
+            <div class="item zone1">
+                <article class="zone carte" id="conf" aria-labelledby="Conference">
+                    <div class="titre">
+                        <h2 id="Conference">Salle de conférence</h2>
+                        <button class="btn" data="conferenceZ" title="Add" 
+                        aria-label="un boutton d'ajout d'un utilisateur sur la salle de conference">+</button>
+                    </div>
+                    <div class="users" aria-live="polite"></div>
+                </article>
+            </div>
+
+            <div class=" zone2"></div>
+
+            <div class="item zone3">
+                <article class="zone carte" id="serv" aria-labelledby="Server">
+                    <div class="titre">
+                        <h3 id="Server">Salle des serveurs</h3>
+                        <button class="btn" data="serverZ" title="Add" 
+                        aria-label="un boutton d'ajout d'un utilisateur sur la salle des servers">+</button>
+                    </div>
+                    <div class="users" aria-live="polite"></div>
+                </article>
+            </div>
+
+            <div class="item zone4">
+                <article class="zone carte" id="secrt" aria-labelledby="Securite">
+                    <div class="titre">
+                        <h3 id="Securite">Salle de sécurité</h3>
+                        <button class="btn" data="securiteZ"
+                        aria-label="un boutton d'ajout d'un utilisateur sur la salle de securite" title="Add">+</button>
+                    </div>
+                    <div class="users" aria-live="polite"></div>
+                </article>
+            </div>
+
+            <div class="item zone5">
+                <article class="zone carte" id="recep" aria-labelledby="Reception">
+                    <div class="titre">
+                        <h3 id="Reception">Réception</h3>
+                        <button class="btn" data="receptionZ" title="Add"
+                        aria-label="un boutton d'ajout d'un utilisateur sur la salle de reception">+</button>
+                    </div>
+                    <div class="users" aria-live="polite"></div>
+                </article>
+            </div>
+
+            <div class="item zone6">
+                <article class="zone carte" id="staf" aria-labelledby="Personnel">
+                    <div class="titre">
+                        <h3 id="Personnel">Salle du personnel</h3>
+                        <button class="btn" data="persoZ" title="Add"
+                        aria-label="un boutton d'ajout d'un utilisateur sur la salle de personnel">+</button>
+                    </div>
+                    <div class="users" aria-live="polite"></div>
+                </article>
+            </div>
+
+            <div class="item zone7">
+                <article class="zone carte" id="archive" aria-labelledby="Archive">
+                    <div class="titre">
+                        <h3 id="Archive">Salle d'archives</h3>
+                        <button class="btn" data="archiveZ" title="Add" 
+                        aria-label="un boutton d'ajout d'un utilisateur sur la salle d'archive">+</button>
+                    </div>
+                    <div class="users" aria-live="polite"></div>
+                </article>
+            </div>
+            <div class=" zone8"></div>
+        </section>
+        
+
+
+        <section class="infos">
+            <h2>Ajouter un employé</h2>
+            <form class="formul">
+                <div class="infos-personnel">
+                    <label for="nom" class="readers">Nom</label>
+                    <input type="text" id="nom" name="nom"required />
+
+                    <label for="roles" class="readers">Rôle</label>
+                    <select name="role" id="roles" required>
+                        <option value="">Veuillez choisir un rôle</option>
+                        <option value="Receptionniste">Réceptionniste</option>
+                        <option value="Technicien">Technicien IT</option>
+                        <option value="Agent">Agent de sécurité</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Nettoyage">Nettoyage</option>
+                        <option value="Autre">Autre rôle</option>
+                    </select>
+
+                    <label for="Photo" class="readers">Photo</label>
+                    <input type="url" id="Photo" name="Photo" />
+                    <img id="photo-user" class="photo-user" alt="Photo-Utilisateur" />
+
+                    <label for="email" class="readers">Email</label>
+                    <input type="email" name="email" id="email" />
+
+                    <label for="tele" class="readers">Phone</label>
+                    <input type="tel" id="tele" name="tele" />
+                </div>
+
+                <div class="experience">
+                    <h2>Les expériences</h2>
+                    <button id="exp" type="button" class="exp">Expériences</button>
+                    <div class="experiences" id="experiences"></div>
+                    <div class="btns">
+                        <button type="button" class="annule">Annuler</button>
+                        <button type="submit" class="sauvegarder">sauvegarder</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section class="modal_2" id="modal-2"></section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
