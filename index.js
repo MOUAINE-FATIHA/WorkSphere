@@ -82,8 +82,7 @@ function ajouterChampExperience() {
         <input type="date" class="exp-fin" required />
         <button type="button" class="supprimer-exp" 
                 style="margin-top:0.5rem; background:#dc2626; color:white; 
-                padding:0.5rem 1rem; border:none; border-radius:6px; cursor:pointer;">Supprimer</button>
-    `;
+                padding:0.5rem 1rem; border:none; border-radius:6px; cursor:pointer;">Supprimer</button>`;
     
     container.appendChild(divExp);
     divExp.querySelector('.supprimer-exp').addEventListener('click', function() {
@@ -145,7 +144,6 @@ function sauvegarderEmploye() {
         telephone: tel,
         experiences: experiences
     });
-    
     sauvegarderDansLocalStorage();
     afficherEmployesNonAssignes();
     fermerFormulaire();
@@ -172,8 +170,7 @@ function afficherEmployesNonAssignes() {
 function estAssigne(idEmploye) {
     for (let zone in affectationsZones) {
         if (affectationsZones[zone].includes(idEmploye)) return true;
-    }
-    return false;
+    }return false;
 }
 
 function creerCarteEmploye(employe) {
