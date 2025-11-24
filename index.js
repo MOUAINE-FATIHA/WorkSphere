@@ -99,7 +99,6 @@ function sauvegarderEmploye() {
         afficherMessage('Téléphone invalide', 'error');
         return;
     }
-    
     const experiences = [];
     document.querySelectorAll('.experience-item').forEach(function(item) {
         const debut = item.querySelector('.exp-debut').value;
@@ -117,7 +116,6 @@ function sauvegarderEmploye() {
             fin: fin
         });
     });
-    
     listeEmployes.push({
         id: Date.now().toString(),
         nom: nom,
@@ -149,7 +147,6 @@ function afficherEmployesNonAssignes() {
         container.appendChild(creerCarteEmploye(emp));
     });
 }
-
 function estAssigne(idEmploye) {
     for (let zone in affectationsZones) {
         if (affectationsZones[zone].includes(idEmploye)) return true;
@@ -161,7 +158,6 @@ function creerCarteEmploye(employe) {
     div.draggable = true;
     div.dataset.id = employe.id;
     div.style.cssText = 'background:white; border-radius:12px; padding:1rem; margin-bottom:0.8rem; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.1);';
-    
     div.innerHTML = `
         <div style="display:flex; align-items:center; gap:0.8rem;">
             <img src="${employe.photo}" style="width:50px; height:50px; border-radius:50%; object-fit:cover;" />
