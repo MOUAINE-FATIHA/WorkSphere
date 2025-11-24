@@ -200,7 +200,6 @@ h1 {
     color: #6e809e;
     margin-top: 0.5em;
 }
-
 input,
 select,
 textarea {
@@ -211,7 +210,6 @@ textarea {
     border-radius: 6px;
     font-size: 1rem;
 }
-
 .formulaire input:focus,
 .formulaire select:focus {
     border-color: #3b82f6;
@@ -227,7 +225,6 @@ textarea {
     border: 1px solid rgba(0, 0, 0, 0.4);
     object-fit: cover;
 }
-
 .exp {
     background: red;
     color: white;
