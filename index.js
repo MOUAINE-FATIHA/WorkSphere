@@ -210,17 +210,14 @@ function creerCarteZone(employe, idZone) {
                     border-radius:50%; width:24px; height:24px; cursor:pointer; font-weight:bold;">×</button>
         </div>
     `;
-    
     div.querySelector('.btn-retirer').addEventListener('click', function(e) {
         e.stopPropagation();
         retirerDeLaZone(employe.id);
     });
-    
     div.addEventListener('dragstart', function(e) {
         e.dataTransfer.setData('employeId', employe.id);
         div.style.opacity = '0.5';
     });
-    
     div.addEventListener('dragend', function() {
         div.style.opacity = '1';
     });
