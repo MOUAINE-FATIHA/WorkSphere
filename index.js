@@ -173,14 +173,11 @@ function creerCarteEmploye(employe) {
         e.dataTransfer.setData('employeId', employe.id);
         div.style.opacity = '0.5';
     });
-    
     div.addEventListener('dragend', function() {
         div.style.opacity = '1';
     });
-    
     return div;
 }
-
 function afficherToutesLesZones() {
     ['conferenceZ', 'receptionZ', 'serverZ', 'securiteZ', 'persoZ', 'archiveZ'].forEach(afficherZone);
 }
