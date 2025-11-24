@@ -59,7 +59,6 @@ function ajouterChampExperience() {
     const divExp = document.createElement('div');
     divExp.className = 'experience-item';
     divExp.style.cssText = 'border:1px solid #ddd; padding:1rem; margin-top:1rem; border-radius:8px;';
-    
     divExp.innerHTML = `
         <label>Poste</label>
         <input type="text" class="exp-poste" required />
@@ -88,12 +87,10 @@ function sauvegarderEmploye() {
         afficherMessage('Le nom doit contenir au moins 2 caractères', 'error');
         return;
     }
-    
     if (!role) {
         afficherMessage('Veuillez choisir un rôle', 'error');
         return;
     }
-    
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         afficherMessage('Email invalide', 'error');
         return;
