@@ -15,21 +15,17 @@ const reglesZones = {
     persoZ: { roles: ['tous'], max: 8, obligatoire: false },
     archiveZ: { roles: ['Receptionniste', 'Technicien', 'Agent', 'Manager', 'Autre'], max: 2, obligatoire: true }
 };
-
 window.addEventListener('DOMContentLoaded', function() {
     afficherEmployesNonAssignes();
     afficherToutesLesZones();
     verifierZonesVides();
-    
     document.querySelector('.ajout').addEventListener('click', ouvrirFormulaire);
     document.getElementById('exp').addEventListener('click', ajouterChampExperience);
-    
     document.getElementById('Photo').addEventListener('input', function() {
         const preview = document.getElementById('photo-user');
         preview.src = this.value || '';
         preview.style.display = this.value ? 'block' : 'none';
     });
-    
     document.querySelector('.formul').addEventListener('submit', function(e) {
         e.preventDefault();
         sauvegarderEmploye();
