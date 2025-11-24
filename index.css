@@ -279,12 +279,10 @@ textarea {
     main {
         grid-template-columns: 1fr;
     }
-
     .parent {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
     }
-
     .modal-content {
         width: 90%;
     }
