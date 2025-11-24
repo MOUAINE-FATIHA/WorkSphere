@@ -221,16 +221,13 @@ function creerCarteZone(employe, idZone) {
     div.addEventListener('dragend', function() {
         div.style.opacity = '1';
     });
-    
     return div;
 }
-
 function activerDragDropZone(container, idZone) {
     container.addEventListener('dragover', function(e) {
         e.preventDefault();
         container.style.background = 'rgba(59, 130, 246, 0.1)';
     });
-    
     container.addEventListener('dragleave', function() {
         container.style.background = 'rgba(255, 235, 205, 0.215)';
     });
