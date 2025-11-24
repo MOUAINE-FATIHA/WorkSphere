@@ -181,21 +181,17 @@ function creerCarteEmploye(employe) {
 function afficherToutesLesZones() {
     ['conferenceZ', 'receptionZ', 'serverZ', 'securiteZ', 'persoZ', 'archiveZ'].forEach(afficherZone);
 }
-
 function afficherZone(idZone) {
     const bouton = document.querySelector('[data="' + idZone + '"]');
     const containerUsers = bouton.closest('.zone').querySelector('.users');
     containerUsers.innerHTML = '';
-    
     if (!affectationsZones[idZone]) {
         affectationsZones[idZone] = [];
     }
-    
     affectationsZones[idZone].forEach(function(idEmp) {
         const employe = trouverEmploye(idEmp);
         if (employe) containerUsers.appendChild(creerCarteZone(employe, idZone));
     });
-    
     activerDragDropZone(containerUsers, idZone);
 }
 
