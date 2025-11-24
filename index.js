@@ -231,16 +231,12 @@ function activerDragDropZone(container, idZone) {
     container.addEventListener('dragleave', function() {
         container.style.background = 'rgba(255, 235, 205, 0.215)';
     });
-    
     container.addEventListener('drop', function(e) {
         e.preventDefault();
         container.style.background = 'rgba(255, 235, 205, 0.215)';
-        
         const idEmploye = e.dataTransfer.getData('employeId');
         const employe = trouverEmploye(idEmploye);
-        
         if (!employe) return;
-        
         if (peutAssigner(employe, idZone)) {
             retirerDeLaZone(idEmploye);
             affectationsZones[idZone].push(idEmploye);
