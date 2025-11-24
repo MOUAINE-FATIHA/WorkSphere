@@ -30,13 +30,10 @@ window.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         sauvegarderEmploye();
     });
-    
     document.querySelector('.annule').addEventListener('click', fermerFormulaire);
-    
     document.querySelector('.infos').addEventListener('click', function(e) {
         if (e.target === this) fermerFormulaire();
     });
-    
     document.querySelectorAll('.zone .btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
             afficherModalSelection(this.getAttribute('data'));
