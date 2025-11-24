@@ -7,7 +7,6 @@ if (localStorage.getItem('employes')) {
 if (localStorage.getItem('affectations')) {
     affectationsZones = JSON.parse(localStorage.getItem('affectations'));
 }
-
 const reglesZones = {
     receptionZ: { roles: ['Receptionniste'], max: 2, obligatoire: true },
     serverZ: { roles: ['Technicien'], max: 3, obligatoire: true },
@@ -48,17 +47,14 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
 function ouvrirFormulaire() {
     document.querySelector('.infos').style.display = 'flex';
     viderFormulaire();
 }
-
 function fermerFormulaire() {
     document.querySelector('.infos').style.display = 'none';
     viderFormulaire();
 }
-
 function viderFormulaire() {
     document.querySelector('.formul').reset();
     document.getElementById('photo-user').style.display = 'none';
@@ -83,13 +79,11 @@ function ajouterChampExperience() {
         <button type="button" class="supprimer-exp" 
                 style="margin-top:0.5rem; background:#dc2626; color:white; 
                 padding:0.5rem 1rem; border:none; border-radius:6px; cursor:pointer;">Supprimer</button>`;
-    
     container.appendChild(divExp);
     divExp.querySelector('.supprimer-exp').addEventListener('click', function() {
         divExp.remove();
     });
 }
-
 function sauvegarderEmploye() {
     const nom = document.getElementById('nom').value.trim();
     const role = document.getElementById('roles').value;
@@ -111,7 +105,6 @@ function sauvegarderEmploye() {
         afficherMessage('Email invalide', 'error');
         return;
     }
-    
     if (tel && !/^[\d\s+()-]{10,20}$/.test(tel)) {
         afficherMessage('Téléphone invalide', 'error');
         return;
