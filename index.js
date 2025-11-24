@@ -152,7 +152,6 @@ function estAssigne(idEmploye) {
         if (affectationsZones[zone].includes(idEmploye)) return true;
     }return false;
 }
-
 function creerCarteEmploye(employe) {
     const div = document.createElement('div');
     div.draggable = true;
@@ -167,11 +166,9 @@ function creerCarteEmploye(employe) {
             </div>
         </div>
     `;
-    
     div.addEventListener('click', function() {
         afficherProfilEmploye(employe);
     });
-    
     div.addEventListener('dragstart', function(e) {
         e.dataTransfer.setData('employeId', employe.id);
         div.style.opacity = '0.5';
