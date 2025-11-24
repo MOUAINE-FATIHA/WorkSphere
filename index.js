@@ -194,13 +194,11 @@ function afficherZone(idZone) {
     });
     activerDragDropZone(containerUsers, idZone);
 }
-
 function creerCarteZone(employe, idZone) {
     const div = document.createElement('div');
     div.draggable = true;
     div.dataset.id = employe.id;
     div.style.cssText = 'background:white; border-radius:12px; padding:0.8rem; margin-bottom:0.6rem; cursor:move; box-shadow:0 2px 4px rgba(0,0,0,0.1);';
-    
     div.innerHTML = `
         <div style="display:flex; align-items:center; gap:0.8rem;">
             <img src="${employe.photo}" style="width:40px; height:40px; border-radius:50%; object-fit:cover;" />
