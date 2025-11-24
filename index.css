@@ -266,7 +266,6 @@ textarea {
     border: 0;
 }
 
-
 .modal_2 {
     display: none;
     position: fixed;
@@ -275,7 +274,6 @@ textarea {
     backdrop-filter: blur(3px);
     z-index: 50;
 }
-
 
 @media (max-width: 1000px) {
     main {
