@@ -372,7 +372,6 @@ function afficherProfilEmploye(employe) {
         modal2.style.display = 'none';
     });
 }
-
 function supprimerEmploye(id) {
     listeEmployes = listeEmployes.filter(function(emp) {
         return emp.id !== id;
@@ -392,7 +391,6 @@ function verifierZonesVides() {
         }
     }
 }
-
 function trouverEmploye(id) {
     return listeEmployes.find(function(emp) {
         return emp.id === id;
@@ -403,7 +401,6 @@ function sauvegarderDansLocalStorage() {
     localStorage.setItem('employes', JSON.stringify(listeEmployes));
     localStorage.setItem('affectations', JSON.stringify(affectationsZones));
 }
-
 function afficherMessage(texte, type) {
     const ancienMsg = document.querySelector('.message-personnalise');
     if (ancienMsg) ancienMsg.remove();
