@@ -8,12 +8,34 @@ if (localStorage.getItem('affectations')) {
     affectationsZones = JSON.parse(localStorage.getItem('affectations'));
 }
 const reglesZones = {
-    receptionZ: { roles: ['Receptionniste'], max: 2, obligatoire: true },
-    serverZ: { roles: ['Technicien'], max: 3, obligatoire: true },
-    securiteZ: { roles: ['Agent'], max: 2, obligatoire: true },
-    conferenceZ: { roles: ['tous'], max: 10, obligatoire: false },
-    persoZ: { roles: ['tous'], max: 8, obligatoire: false },
-    archiveZ: { roles: ['Receptionniste', 'Technicien', 'Agent', 'Manager', 'Autre'], max: 2, obligatoire: true }
+    receptionZ: { 
+        roles: ['Receptionniste'], 
+        max: 2, 
+        obligatoire: true 
+    },
+    serverZ: { 
+        roles: ['Technicien'], 
+        max: 3, 
+        obligatoire: true },
+    securiteZ: { 
+        roles: ['Agent'], 
+        max: 2, 
+        obligatoire: true 
+    },
+    conferenceZ: { 
+        roles: ['tous'], 
+        max: 10, 
+        obligatoire: false 
+    },
+    persoZ: { 
+        roles: ['tous'], 
+        max: 8, 
+        obligatoire: false 
+    },
+    archiveZ: { 
+        roles: ['Receptionniste', 'Technicien', 'Agent', 'Manager', 'Autre'], 
+        max: 2, 
+        obligatoire: true }
 };
 window.addEventListener('DOMContentLoaded', function() {
     afficherEmployesNonAssignes();
@@ -69,7 +91,7 @@ function ajouterChampExperience() {
         <label>Date fin</label>
         <input type="date" class="exp-fin" required />
         <button type="button" class="supprimer-exp" 
-                style="margin-top:0.5rem; background:#dc2626; color:white; 
+                style="margin-top:0.5rem; background:red; color:white; 
                 padding:0.5rem 1rem; border:none; border-radius:6px; cursor:pointer;">Supprimer</button>`;
     container.appendChild(divExp);
     divExp.querySelector('.supprimer-exp').addEventListener('click', function() {
@@ -156,16 +178,15 @@ function creerCarteEmploye(employe) {
     const div = document.createElement('div');
     div.draggable = true;
     div.dataset.id = employe.id;
-    div.style.cssText = 'background:white; border-radius:12px; padding:1rem; margin-bottom:0.8rem; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.1);';
+    div.style.cssText= 'background:white;border-radius:12px ;padding:0.5rem ; margin-bottom:0.8rem;cursor:pointer;';
     div.innerHTML = `
-        <div style="display:flex; align-items:center; gap:0.8rem;">
+        <div style="display:flex; align-items:center; gap:0.4rem;">
             <img src="${employe.photo}" style="width:50px; height:50px; border-radius:50%; object-fit:cover;" />
             <div style="flex:1;">
-                <div style="font-weight:600; color:#333;">${employe.nom}</div>
-                <div style="font-size:0.85rem; color:#666;">${employe.role}</div>
+                <div style="font-weight:600; color:black;">${employe.nom}</div>
+                <div style="font-size:0.85rem; color:gray ;">${employe.role}</div>
             </div>
-        </div>
-    `;
+        </div>`;
     div.addEventListener('click', function() {
         afficherProfilEmploye(employe);
     });
@@ -198,18 +219,17 @@ function creerCarteZone(employe, idZone) {
     const div = document.createElement('div');
     div.draggable = true;
     div.dataset.id = employe.id;
-    div.style.cssText = 'background:white; border-radius:12px; padding:0.8rem; margin-bottom:0.6rem; cursor:move; box-shadow:0 2px 4px rgba(0,0,0,0.1);';
+    div.style.cssText = 'background:white; border-radius:12px; padding:0.4rem; margin-bottom:0.6rem; cursor:move;';
     div.innerHTML = `
-        <div style="display:flex; align-items:center; gap:0.8rem;">
+        <div style="display:flex; align-items:center; gap:0.4rem;">
             <img src="${employe.photo}" style="width:40px; height:40px; border-radius:50%; object-fit:cover;" />
             <div style="flex:1;">
-                <div style="font-weight:600; font-size:0.9rem; color:#333;">${employe.nom}</div>
-                <div style="font-size:0.75rem; color:#666;">${employe.role}</div>
+                <div style="font-weight:600; font-size:0.9rem; color:black;">${employe.nom}</div>
+                <div style="font-size:0.75rem; color:gray;">${employe.role}</div>
             </div>
-            <button class="btn-retirer" style="background:#dc2626; color:white; border:none; 
-                    border-radius:50%; width:24px; height:24px; cursor:pointer; font-weight:bold;">×</button>
-        </div>
-    `;
+            <button class="btn-retirer" style="background:brown;color:white; border:none; 
+                    border-radius:50%; width:24px; height:24px; cursor:pointer;font-weight:bold;">×</button>
+        </div>`;
     div.querySelector('.btn-retirer').addEventListener('click', function(e) {
         e.stopPropagation();
         retirerDeLaZone(employe.id);
@@ -226,14 +246,10 @@ function creerCarteZone(employe, idZone) {
 function activerDragDropZone(container, idZone) {
     container.addEventListener('dragover', function(e) {
         e.preventDefault();
-        container.style.background = 'rgba(59, 130, 246, 0.1)';
-    });
-    container.addEventListener('dragleave', function() {
-        container.style.background = 'rgba(255, 235, 205, 0.215)';
     });
     container.addEventListener('drop', function(e) {
         e.preventDefault();
-        container.style.background = 'rgba(255, 235, 205, 0.215)';
+        container.style.background = 'rgba(255, 244, 219, 0.2)';
         const idEmploye = e.dataTransfer.getData('employeId');
         const employe = trouverEmploye(idEmploye);
         if (!employe) return;
@@ -245,7 +261,7 @@ function activerDragDropZone(container, idZone) {
             afficherToutesLesZones();
             verifierZonesVides();
         } else {
-            afficherMessage('Cet employé ne peut pas être assigné à cette zone', 'error');
+            afficherMessage('Cet employe ne peut pas etre assignée à cette zone','error');
         }
     });
 }
@@ -254,7 +270,7 @@ function peutAssigner(employe, idZone) {
     const regles = reglesZones[idZone];
     
     if (affectationsZones[idZone].length >= regles.max) {
-        afficherMessage('Capacité maximale atteinte (' + regles.max + ')', 'error');
+        afficherMessage('La capacite maximale atteinte (' + regles.max + ')', 'error');
         return false;
     }
     
@@ -385,9 +401,9 @@ function verifierZonesVides() {
         const zoneDiv = document.querySelector('[data="' + idZone + '"]').closest('.item');
         
         if (regles.obligatoire && (!affectationsZones[idZone] || affectationsZones[idZone].length === 0)) {
-            zoneDiv.style.backgroundColor = 'rgba(255, 200, 200, 0.3)';
+            zoneDiv.style.backgroundColor = 'rgba(255, 0, 0, 0.27)';
         } else {
-            zoneDiv.style.backgroundColor = '';
+            zoneDiv.style.backgroundColor = 'rgba(0, 255, 17, 0.16)';
         }
     }
 }
@@ -407,7 +423,9 @@ function afficherMessage(texte, type) {
     
     const messageDiv = document.createElement('div');
     messageDiv.className = 'message-personnalise';
-    messageDiv.style.cssText = `position:fixed; top:20px; left:50%; transform:translateX(-50%); background:${type === 'error' ? '#dc2626' : '#16a34a'}; color:white; padding:1rem 2rem; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.3); z-index:9999; font-weight:600; animation:slideDown 0.3s ease;`;
+    messageDiv.style.cssText = `position:fixed; top:20px; left:50%; transform:translateX(-50%); 
+    background:${type==='error'? 'red':'green'};color:white; padding:1rem 2rem; border-radius:8px; 
+    z-index:9999; font-weight:600; animation:slideDown 0.3s ease;`;
     messageDiv.textContent = texte;
     document.body.appendChild(messageDiv);
     
@@ -419,6 +437,6 @@ function afficherMessage(texte, type) {
     }, 3000);
 }
 
-const style = document.createElement('style');
-style.textContent = '@keyframes slideDown{from{top:-100px;opacity:0}to{top:20px;opacity:1}}@keyframes slideUp{from{top:20px;opacity:1}to{top:-100px;opacity:0}}';
+const style =document.createElement('style');
+style.textContent= '@keyframes slideDown{from{top:-100px;opacity:0}to{top:20px;opacity:1}}@keyframes slideUp{from{top:20px;opacity:1}to{top:-100px;opacity:0}}';
 document.head.appendChild(style);
